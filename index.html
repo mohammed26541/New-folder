@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn CSS Attribute Selectors - Interactive Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1>🎯 CSS Attribute Selectors</h1>
+            <p class="subtitle">Learn how to target HTML elements based on their attributes through interactive examples!</p>
+        </header>
+
+        <nav class="navigation">
+            <button class="nav-btn active" data-section="intro">Introduction</button>
+            <button class="nav-btn" data-section="basic">Basic Selectors</button>
+            <button class="nav-btn" data-section="advanced">Advanced Selectors</button>
+            <button class="nav-btn" data-section="practice">Practice</button>
+        </nav>
+
+        <main class="content">
+            <!-- Introduction Section -->
+            <section id="intro" class="section active">
+                <div class="card">
+                    <h2>What are Attribute Selectors?</h2>
+                    <p>Attribute selectors allow you to style HTML elements based on their attributes and attribute values. Think of them as special filters that help you target specific elements!</p>
+                    
+                    <div class="example-box">
+                        <h3>🎯 Real-world Analogy</h3>
+                        <p>Imagine you're organizing a library:</p>
+                        <ul>
+                            <li><strong>All books</strong> = All elements</li>
+                            <li><strong>Books with red covers</strong> = Elements with specific attributes</li>
+                            <li><strong>Books by a specific author</strong> = Elements with specific attribute values</li>
+                        </ul>
+                    </div>
+
+                    <div class="interactive-demo">
+                        <h3>Quick Demo</h3>
+                        <div class="demo-container">
+                            <div class="demo-element" data-type="fruit" data-color="red">🍎 Apple</div>
+                            <div class="demo-element" data-type="fruit" data-color="yellow">🍌 Banana</div>
+                            <div class="demo-element" data-type="vegetable" data-color="green">🥬 Lettuce</div>
+                            <div class="demo-element" data-type="fruit" data-color="orange">🍊 Orange</div>
+                        </div>
+                        <div class="demo-controls">
+                            <button class="demo-btn" data-selector="[data-type='fruit']">Show Fruits</button>
+                            <button class="demo-btn" data-selector="[data-color='red']">Show Red Items</button>
+                            <button class="demo-btn" data-selector="[data-type='vegetable']">Show Vegetables</button>
+                            <button class="demo-btn" data-selector="*">Show All</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Basic Selectors Section -->
+            <section id="basic" class="section">
+                <div class="card">
+                    <h2>Basic Attribute Selectors</h2>
+                    
+                    <div class="selector-grid">
+                        <div class="selector-card">
+                            <h3>1. [attribute]</h3>
+                            <p>Selects elements that have the specified attribute</p>
+                            <code>[title]</code>
+                            <div class="example">
+                                <p title="Hello">This has a title</p>
+                                <p>This doesn't have a title</p>
+                            </div>
+                        </div>
+
+                        <div class="selector-card">
+                            <h3>2. [attribute="value"]</h3>
+                            <p>Selects elements with exact attribute value</p>
+                            <code>[type="button"]</code>
+                            <div class="example">
+                                <button type="button">Button</button>
+                                <button type="submit">Submit</button>
+                            </div>
+                        </div>
+
+                        <div class="selector-card">
+                            <h3>3. [attribute~="value"]</h3>
+                            <p>Selects elements with attribute containing the word</p>
+                            <code>[class~="highlight"]</code>
+                            <div class="example">
+                                <span class="highlight">Highlighted</span>
+                                <span class="highlight important">Important highlight</span>
+                                <span class="normal">Normal text</span>
+                            </div>
+                        </div>
+
+                        <div class="selector-card">
+                            <h3>4. [attribute|="value"]</h3>
+                            <p>Selects elements with attribute starting with value</p>
+                            <code>[lang|="en"]</code>
+                            <div class="example">
+                                <p lang="en">English</p>
+                                <p lang="en-US">English US</p>
+                                <p lang="fr">French</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Selectors Section -->
+            <section id="advanced" class="section">
+                <div class="card">
+                    <h2>Advanced Attribute Selectors</h2>
+                    
+                    <div class="selector-grid">
+                        <div class="selector-card">
+                            <h3>5. [attribute^="value"]</h3>
+                            <p>Selects elements with attribute starting with value</p>
+                            <code>[href^="https"]</code>
+                            <div class="example">
+                                <a href="https://example.com">Secure link</a>
+                                <a href="http://example.com">Regular link</a>
+                            </div>
+                        </div>
+
+                        <div class="selector-card">
+                            <h3>6. [attribute$="value"]</h3>
+                            <p>Selects elements with attribute ending with value</p>
+                            <code>[src$=".jpg"]</code>
+                            <div class="example">
+                                <img src="photo.jpg" alt="Photo">
+                                <img src="image.png" alt="Image">
+                            </div>
+                        </div>
+
+                        <div class="selector-card">
+                            <h3>7. [attribute*="value"]</h3>
+                            <p>Selects elements with attribute containing value</p>
+                            <code>[alt*="cat"]</code>
+                            <div class="example">
+                                <img src="#" alt="A cute cat">
+                                <img src="#" alt="A dog">
+                                <img src="#" alt="Another cat picture">
+                            </div>
+                        </div>
+
+                        <div class="selector-card">
+                            <h3>8. [attribute*="value" i]</h3>
+                            <p>Case-insensitive matching</p>
+                            <code>[class*="button" i]</code>
+                            <div class="example">
+                                <button class="Button">Button</button>
+                                <button class="BUTTON">BUTTON</button>
+                                <button class="button">button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Practice Section -->
+            <section id="practice" class="section">
+                <div class="card">
+                    <h2>Practice Zone</h2>
+                    <p>Test your knowledge with interactive challenges!</p>
+                    
+                    <div class="practice-area">
+                        <div class="code-editor">
+                            <h3>Write your selector:</h3>
+                            <input type="text" id="selector-input" placeholder="e.g., [data-type='fruit']" class="selector-input">
+                            <button id="test-selector" class="test-btn">Test Selector</button>
+                        </div>
+
+                        <div class="practice-elements">
+                            <h3>Target these elements:</h3>
+                            <div class="practice-container">
+                                <div class="practice-item" data-category="fruit" data-color="red" data-size="small">🍓 Strawberry</div>
+                                <div class="practice-item" data-category="fruit" data-color="yellow" data-size="large">🍌 Banana</div>
+                                <div class="practice-item" data-category="vegetable" data-color="green" data-size="medium">🥬 Lettuce</div>
+                                <div class="practice-item" data-category="fruit" data-color="orange" data-size="medium">🍊 Orange</div>
+                                <div class="practice-item" data-category="vegetable" data-color="red" data-size="small">🍅 Tomato</div>
+                                <div class="practice-item" data-category="fruit" data-color="purple" data-size="small">🫐 Blueberry</div>
+                            </div>
+                        </div>
+
+                        <div class="challenges">
+                            <h3>Challenges:</h3>
+                            <div class="challenge-list">
+                                <div class="challenge" data-target="[data-category='fruit']">
+                                    <span>🎯 Select all fruits</span>
+                                    <button class="show-solution">Show Solution</button>
+                                </div>
+                                <div class="challenge" data-target="[data-color='red']">
+                                    <span>🎯 Select all red items</span>
+                                    <button class="show-solution">Show Solution</button>
+                                </div>
+                                <div class="challenge" data-target="[data-size='small']">
+                                    <span>🎯 Select all small items</span>
+                                    <button class="show-solution">Show Solution</button>
+                                </div>
+                                <div class="challenge" data-target="[data-category='fruit'][data-color='red']">
+                                    <span>🎯 Select red fruits only</span>
+                                    <button class="show-solution">Show Solution</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Made with ❤️ for learning CSS Attribute Selectors</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
