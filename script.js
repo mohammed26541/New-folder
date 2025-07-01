@@ -376,4 +376,68 @@ document.addEventListener('click', (e) => {
     if (e.target.classList.contains('show-solution')) {
         setTimeout(updateProgress, 1000);
     }
-}); 
+});
+
+// Developer section functions
+function copyPhone() {
+    const phoneNumber = '01203791667';
+    
+    // Try to use the modern clipboard API
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(phoneNumber).then(() => {
+            showNotification('📞 Phone number copied to clipboard!', 'success');
+        }).catch(() => {
+            fallbackCopyPhone(phoneNumber);
+        });
+    } else {
+        fallbackCopyPhone(phoneNumber);
+    }
+}
+
+function fallbackCopyPhone(phoneNumber) {
+    // Fallback for older browsers
+    const textArea = document.createElement('textarea');
+    textArea.value = phoneNumber;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        showNotification('📞 Phone number copied to clipboard!', 'success');
+    } catch (err) {
+        showNotification('📞 Phone number: ' + phoneNumber, 'info');
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+function showEmailInfo() {
+    const emailInfo = `
+        📧 Contact Information:
+        
+        For business inquiries, project collaborations, or questions about this learning platform, please contact:
+        
+        📞 Phone: 01203791667
+        
+        💼 Services:
+        • Web Development
+        • Educational Technology
+        • Interactive Learning Platforms
+        • CSS & Frontend Development
+        • Responsive Design
+        
+        🌟 Specializing in creating engaging, educational web experiences like this CSS Attribute Selectors learning platform!
+    `;
+    
+    showNotification('📧 Contact information displayed in console. Check browser console for details.', 'info');
+    console.log(emailInfo);
+    
+    // Also show a more detailed notification
+    setTimeout(() => {
+        showNotification('💼 Available for web development projects and educational technology consulting!', 'info');
+    }, 1000);
+} 
